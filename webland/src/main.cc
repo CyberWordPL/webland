@@ -1,20 +1,16 @@
 #include <shared_logger.hh>
 
-#include <uicore_init.hh>
-#include <uicore_main_window.hh>
+#include <webland_application.hh>
 
+using webland::WeblandApplication;
 using webland_shared::LogLevel, webland_shared::LogMessage;
 
 /*
  * Main function of Webland, Initializes everything and loads config
  * */
-int main() {
-    LogMessage(LogLevel::Note, "Webland Starts");
+int main(int argc, char **argv) {
+    LogMessage(LogLevel::Info, "Webland Starts");
 
-    std::string tabName = "Webland Alpha";
-
-    uicore::InitUICore();
-    uicore::MainWindow window(tabName);
-    window.CreateWindow();
-    window.ParseEventLoop();
+    WeblandApplication app;
+    app.Run(argc, argv);
 }

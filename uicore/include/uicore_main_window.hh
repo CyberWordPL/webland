@@ -1,21 +1,19 @@
 #ifndef WEBLAND_UICORE_MAIN_WINDOW_HH
 #define WEBLAND_UICORE_MAIN_WINDOW_HH
 
-#include <string>
+#include <vector>
 
-#include <GLFW/glfw3.h>
+#include <gtk/gtk.h>
 
 namespace uicore {
     class MainWindow {
     private:
-        std::string title;
-        GLFWwindow *window;
+        GtkApplication *gtk_application;
+        GtkWidget *window;
+        std::vector<GtkWidget> elements;
     public:
-        MainWindow(std::string title_name) {
-            title = title_name;
-        }
-        bool CreateWindow();
-        void ParseEventLoop();
+        MainWindow(GtkApplication *app);
+        void RunWindow();
     };
 }
 

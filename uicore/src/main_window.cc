@@ -1,28 +1,20 @@
-#include <uicore_main_window.hh>
+#include <gtk/gtk.h>
 
-#include <GLFW/glfw3.h>
+#include <uicore_main_window.hh>
 
 using uicore::MainWindow;
 
-bool MainWindow::CreateWindow() {
-    window = glfwCreateWindow(640, 480, title.c_str(), NULL, NULL);
-    if(!window) {
-        glfwTerminate();
-        return false;
-    }
-
-    glfwMakeContextCurrent(window);
-    glClearColor(1, 1, 1, 1);
-
-    return true;
+MainWindow::MainWindow(GtkApplication *app) {
+    gtk_application = app;
 }
 
-void MainWindow::ParseEventLoop() {
-    while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
+void MainWindow::RunWindow() {
+    window = gtk_application_window_new(gtk_application);
 
-        glfwSwapBuffers(window);
+    GtkWidget *button = gtk_button_new_with_label("Hello, World!");
 
-        glfwPollEvents();
-    }
+    g_signal_connect_swapped(button, "clicked", G_CALLBACK(gtk_window_close), window);
+    gtk_window_set_child(GTK_WINDOW(window), button);
+
+    gtk_window_present(GTK_WINDOW(window));
 }

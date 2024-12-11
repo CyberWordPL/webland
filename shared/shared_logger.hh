@@ -7,7 +7,6 @@
 namespace webland_shared {
     enum class LogLevel {
         Info,
-        Note,
         Warning,
         Error,
         Critical
@@ -17,8 +16,6 @@ namespace webland_shared {
         switch (level) {
             case LogLevel::Info:
                 return "INFO";
-            case LogLevel::Note:
-                return "NOTE";
             case LogLevel::Warning:
                 return "WARNING";
             case LogLevel::Error:
