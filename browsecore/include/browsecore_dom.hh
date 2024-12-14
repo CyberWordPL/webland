@@ -8,9 +8,9 @@
 namespace browsecore {
     class DocumentObjectModel {
     private:
-        HtmlElement root_element;
+        std::vector<HtmlElement> elements;
     public:
-        const HtmlElement &GetRootElement();
+        HtmlElement GetRootElement();
     };
 }
 

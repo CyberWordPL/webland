@@ -10,11 +10,20 @@ namespace browsecore {
     class HtmlElement {
         friend class DocumentObjectModel;
 
-        protected:    
+        protected:
+            int elementId;
+
             std::map<std::string_view, std::string_view> attributes;
             std::string_view contentHtml; 
-            std::vector<HtmlElement> childs;
+            std::vector<int> childsId;
         public:
+            static HtmlElement ProvideNullHtmlElement() {
+                HtmlElement e;
+                e.elementId = -1;
+                return e;
+            }
+
+            bool IsNullElement();
     };
 }
 
