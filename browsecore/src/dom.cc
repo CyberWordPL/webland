@@ -11,6 +11,6 @@ HtmlElement DocumentObjectModel::GetRootElement() {
     }
 
     // How you found here?
-    // You look on empty page?
+    // Do you look on empty page?
     throw browsecore::DomError::RootElementDoesNotExist;
 }
