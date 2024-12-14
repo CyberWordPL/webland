@@ -15,7 +15,5 @@ HtmlElement DocumentObjectModel::GetElementByInternalId(int id) {
             return elem;
     }
 
-    // How do you found here?
-    // Do you look on empty page?
     throw browsecore::DomError::ElementWithGivenInternalIdDoesNotExist;
 }

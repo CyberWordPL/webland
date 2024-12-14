@@ -3,7 +3,9 @@
 
 #include <browsecore_element.hh>
 
+#include <cstdint>
 #include <vector>
+#include <map>
 
 namespace browsecore {
     class DocumentObjectModel {
@@ -11,7 +13,7 @@ namespace browsecore {
         std::vector<HtmlElement> elements;
     public:
         HtmlElement GetRootElement();
-        HtmlElement GetElementByInternalId(int id);
+        HtmlElement GetElementByInternalId(std::uint32_t id);
     };
 }
 
