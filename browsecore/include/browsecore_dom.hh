@@ -11,6 +11,7 @@ namespace browsecore {
         std::vector<HtmlElement> elements;
     public:
         HtmlElement GetRootElement();
+        HtmlElement GetElementByInternalId(int id);
     };
 }
 

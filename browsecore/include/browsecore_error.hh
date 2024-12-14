@@ -3,7 +3,7 @@
 
 namespace browsecore {
     enum class DomError {
-        RootElementDoesNotExist
+        ElementWithGivenInternalIdDoesNotExist
     };
 }
 
